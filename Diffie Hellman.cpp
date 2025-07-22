@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     srand(static_cast<unsigned int>(time(0)));
 
-    int prime_modulus, primitive_root;
+    long long int prime_modulus, primitive_root;
     cout << "Enter the prime modulus: ";
     cin >> prime_modulus;
     cout << "Enter the primitive root: ";

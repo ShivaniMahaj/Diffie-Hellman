@@ -3,14 +3,14 @@
 
 class Entity {
 public:
-    int prime_modulus, primitve_root; 
+    long long int prime_modulus, primitve_root;
 
-    Entity(int primeModulus, int primitiveRoot);
-    int computePublicKey(int private_key);
-    int computeSharedSecret(int publicKey, int private_key);
+    Entity(long long int primeModulus, long long int primitiveRoot);
+    long long int computePublicKey(long long int private_key);
+    long long int computeSharedSecret(long long int publicKey, long long int private_key);
 
 private:
-    int modExpression(int base, int exponent, int mod);
+    long long int modExpression(long long int base, long long int exponent, long long int mod);
 };
 
 #endif ENTITY_HPP

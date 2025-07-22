@@ -3,13 +3,13 @@
 #include <iostream>
 
 
-Entity::Entity(int primeModulus, int primitiveRoot) {
+Entity::Entity(long long int primeModulus, long long int primitiveRoot) {
     prime_modulus = primeModulus;
     primitve_root = primitiveRoot;
 }
 
-int Entity::modExpression(int base, int exponent, int mod) {
-    int result = 1;
+long long int Entity::modExpression(long long int base, long long int exponent, long long int mod) {
+    long long int result = 1;
     base = base % mod;
 
     while (exponent > 0) {
@@ -23,13 +23,13 @@ int Entity::modExpression(int base, int exponent, int mod) {
     return result;
 }
 
-int Entity::computePublicKey(int private_key) {
-    int publicKey = modExpression(primitve_root, private_key, prime_modulus);
+long long int Entity::computePublicKey(long long int private_key) {
+    long long int publicKey = modExpression(primitve_root, private_key, prime_modulus);
     return publicKey;
 }
 
-int Entity::computeSharedSecret(int publicKey, int private_key) {
-    int sharedSecret = modExpression(publicKey, private_key, prime_modulus);
+long long int Entity::computeSharedSecret(long long int publicKey, long long int private_key) {
+    long long int sharedSecret = modExpression(publicKey, private_key, prime_modulus);
     return sharedSecret;
 }
 

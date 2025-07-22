@@ -20,20 +20,20 @@ void User::generatePublicKey() {
     std::cout << name << " generated public key: " << publicKey << std::endl;
 }
 
-void User::receivePublicKey(int receivedPublicKey) {
+void User::receivePublicKey(long long int receivedPublicKey) {
     this->receivedPublicKey = receivedPublicKey;
     std::cout << name << " received public key: " << receivedPublicKey << std::endl;
 }
 
-int User::getPublicKey() {
+long long int User::getPublicKey() {
     return this->publicKey;
 }
 
-int User::getReceivedPublicKey() {
+long long int User::getReceivedPublicKey() {
     return this->receivedPublicKey;
 }
 
-void User::computeSharedSecret(int otherPublicKey) {
+void User::computeSharedSecret(long long int otherPublicKey) {
     sharedSecret = entity->computeSharedSecret(otherPublicKey, privateKey);
     std::cout << name << " computed shared secret: " << sharedSecret << std::endl;
 }

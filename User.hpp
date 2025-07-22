@@ -6,21 +6,21 @@
 
 class User {
 private:
-    int sharedSecret;
-    int receivedPublicKey;
+    long long int sharedSecret;
+    long long int receivedPublicKey;
 
 public:
     std::string name;
-    int privateKey, publicKey;
+    long long int privateKey, publicKey;
     Entity* entity;
 
     User(std::string userName, Entity* entityObj);
     void selectPrivateKey();
     void generatePublicKey();
-    int getPublicKey();
-    int getReceivedPublicKey();
-    void receivePublicKey(int receivedPublicKey);
-    void computeSharedSecret(int otherPublicKey);
+    long long int getPublicKey();
+    long long int getReceivedPublicKey();
+    void receivePublicKey(long long int receivedPublicKey);
+    void computeSharedSecret(long long int otherPublicKey);
 };
 
 #endif USER_HPP
