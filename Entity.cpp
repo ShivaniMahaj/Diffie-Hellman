@@ -23,17 +23,13 @@ int Entity::modExpression(int base, int exponent, int mod) {
     return result;
 }
 
-int Entity::computePublicKey(int secret) {
-    int publicKey = modExpression(primitve_root, secret, prime_modulus);
-    std::cout << "key Value I'm getting in computePublicKey " << primitve_root << "    " << secret << "    " << prime_modulus << std::endl;
-    std::cout << "Computed Public Key: " << publicKey << std::endl;
+int Entity::computePublicKey(int private_key) {
+    int publicKey = modExpression(primitve_root, private_key, prime_modulus);
     return publicKey;
 }
 
-int Entity::computeSharedSecret(int publicKey, int secret) {
-    int sharedSecret = modExpression(publicKey, secret, prime_modulus);
-    std::cout << "key Value I'm getting in computeSharedSecret " << publicKey << "    " << secret << "    " << prime_modulus << std::endl;
-    std::cout << "Computed Shared Secret: " << sharedSecret << std::endl;
+int Entity::computeSharedSecret(int publicKey, int private_key) {
+    int sharedSecret = modExpression(publicKey, private_key, prime_modulus);
     return sharedSecret;
 }
 

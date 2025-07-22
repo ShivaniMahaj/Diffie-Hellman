@@ -21,15 +21,21 @@ void User::generatePublicKey() {
 }
 
 void User::receivePublicKey(int receivedPublicKey) {
+    this->receivedPublicKey = receivedPublicKey;
     std::cout << name << " received public key: " << receivedPublicKey << std::endl;
-    publicKey = receivedPublicKey;
+}
+
+int User::getPublicKey() {
+    return this->publicKey;
+}
+
+int User::getReceivedPublicKey() {
+    return this->receivedPublicKey;
 }
 
 void User::computeSharedSecret(int otherPublicKey) {
     sharedSecret = entity->computeSharedSecret(otherPublicKey, privateKey);
     std::cout << name << " computed shared secret: " << sharedSecret << std::endl;
 }
-
-
 
 

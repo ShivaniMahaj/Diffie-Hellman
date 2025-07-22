@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    srand(time(0));
+    srand(static_cast<unsigned int>(time(0)));
 
     int prime_modulus, primitive_root;
     cout << "Enter the prime modulus: ";
@@ -22,13 +22,13 @@ int main() {
     bob.selectPrivateKey();
 
     alice.generatePublicKey();
-    bob.receivePublicKey(alice.publicKey);
-
     bob.generatePublicKey();
-    alice.receivePublicKey(bob.publicKey);
 
-    alice.computeSharedSecret(bob.publicKey);
-    bob.computeSharedSecret(alice.publicKey);
+    bob.receivePublicKey(alice.getPublicKey());
+    alice.receivePublicKey(bob.getPublicKey());
+
+    alice.computeSharedSecret(alice.getReceivedPublicKey());
+    bob.computeSharedSecret(bob.getReceivedPublicKey());
 
     return 0;
 }

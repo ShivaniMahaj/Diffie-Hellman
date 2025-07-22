@@ -7,6 +7,7 @@
 class User {
 private:
     int sharedSecret;
+    int receivedPublicKey;
 
 public:
     std::string name;
@@ -16,6 +17,8 @@ public:
     User(std::string userName, Entity* entityObj);
     void selectPrivateKey();
     void generatePublicKey();
+    int getPublicKey();
+    int getReceivedPublicKey();
     void receivePublicKey(int receivedPublicKey);
     void computeSharedSecret(int otherPublicKey);
 };
